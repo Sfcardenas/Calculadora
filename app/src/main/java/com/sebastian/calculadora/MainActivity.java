@@ -39,6 +39,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // [AQUÍ VAN LOS LISTENERS DE LAS DEMÁS OPERACIONES]
+
+        // ===== DIVISIÓN - listener =====
+        findViewById(R.id.btnDividir).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { dividir(); }
+        });
+
+        // ===== MULTIPLICACIÓN - listener =====
+        findViewById(R.id.btnMultiplicar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { multiplicar(); }
+        });
+
         // ===== RESTA - listener =====
         findViewById(R.id.btnRestar).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +89,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // [AQUÍ VAN LOS MÉTODOS DE LAS DEMÁS OPERACIONES]
+    // ===== DIVISIÓN - método =====
+    private void dividir() {
+        Double a = leerNumero(etNumero1), b = leerNumero(etNumero2);
+        if (a == null || b == null) return;
+        if (b == 0) {
+            Toast.makeText(this, "No se puede dividir entre cero", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        mostrarResultado("división", a / b);
+    }
+    // ===== MULTIPLICACIÓN - método =====
+    private void multiplicar() {
+        Double a = leerNumero(etNumero1), b = leerNumero(etNumero2);
+        if (a == null || b == null) return;
+        mostrarResultado("multiplicación", a * b);
+    }
     // ===== RESTA - método =====
     private void restar() {
         Double a = leerNumero(etNumero1), b = leerNumero(etNumero2);
