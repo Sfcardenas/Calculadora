@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // [AQUÍ VAN LOS LISTENERS DE LAS DEMÁS OPERACIONES]
+        // ===== RESTA - listener =====
+        findViewById(R.id.btnRestar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { restar(); }
+        });
     }
 
     // ---------- Métodos de apoyo ----------
@@ -71,4 +76,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // [AQUÍ VAN LOS MÉTODOS DE LAS DEMÁS OPERACIONES]
+    // ===== RESTA - método =====
+    private void restar() {
+        Double a = leerNumero(etNumero1), b = leerNumero(etNumero2);
+        if (a == null || b == null) return;
+        mostrarResultado("resta", a - b);
+    }
 }
